@@ -19,10 +19,11 @@ function App() {
   const buttonStyles = {
     root:{
       width:300,
-      backgroundColor:'red',
+      backgroundColor:'blue',
+      color:'white',
       selectors:{
         ':hover':{
-          color:'white'
+          color:'black'
         }
       }
     }
