@@ -1,40 +1,53 @@
 import './App.css';
 import 'react-loading-skeleton/dist/skeleton.css'
-import { Dropdown, initializeIcons, DropdownMenuItemType } from '@fluentui/react';
+import { Dropdown, initializeIcons, DropdownMenuItemType, DefaultButton } from '@fluentui/react';
 
 initializeIcons();
 
 
 function App() {
   const dropdownStyles = {
-    root: { width: 300 },
+    root: { width: 300},
+    dropdownTitle:{borderRadius: 20},
     dropdownItem:{backgroundColor:'white', selectors:{
       ':hover':{
-        color:"red"
+        color:"blue"
       }
     }},
-    dropdownItemHeader: { backgroundColor: 'pink' },
+    dropdownItemHeader: { backgroundColor: 'grey', color:'black' },
   };
+  const buttonStyles = {
+    root:{
+      width:300,
+      backgroundColor:'red',
+      selectors:{
+        ':hover':{
+          color:'white'
+        }
+      }
+    }
+
+  }
   const options = [
-    { key: 'fruitsHeader', text: 'Fruits', itemType: DropdownMenuItemType.Header },
-    { key: 'apple', text: 'Apple' },
-    { key: 'banana', text: 'Banana' },
-    { key: 'orange', text: 'Orange', disabled: true },
-    { key: 'grape', text: 'Grape' },
+    { key: 'food', text: 'غذا', itemType: DropdownMenuItemType.Header },
+    { key: 'pizza', text: 'پیتزا' },
+    { key: 'burger', text: 'برگر' },
+    { key: 'pasta', text: 'پاستا', disabled: true },
     { key: 'divider_1', text: '-', itemType: DropdownMenuItemType.Divider },
-    { key: 'vegetablesHeader', text: 'Vegetables', itemType: DropdownMenuItemType.Header },
-    { key: 'broccoli', text: 'Broccoli' },
-    { key: 'carrot', text: 'Carrot' },
-    { key: 'lettuce', text: 'Lettuce' },
+    { key: 'appetizer', text: 'پیش غذا', itemType: DropdownMenuItemType.Header },
+    { key: 'fires', text: 'سیب زمینی' },
+    { key: 'salad', text: 'سالاد' },
   ];
   return (
     <div className="App">
       <Dropdown
-        label="Disabled example with defaultSelectedKey"
-        defaultSelectedKey="broccoli"
+        label="تست دراپ دان"
+        defaultSelectedKey="pizza"
         options={options}
         styles={dropdownStyles}
       />
+      <DefaultButton text="Standard" allowDisabledFocus disabled={false}  styles={buttonStyles}/>
+
     </div>
   );
 }
